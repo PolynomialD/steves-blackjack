@@ -22,6 +22,16 @@ class DeckTest {
 
         assertEquals("Queen", card1.getFaceValue());
         assertEquals("King", card2.getFaceValue());
+    }
 
+    @Test
+    void shuffle_shuffles_the_deck() {
+        List<Card> cards = new CardGenerator().generate();
+        List<Card> originalOrder = new ArrayList<>(cards);
+
+        Deck deck = new Deck(cards);
+        deck.shuffle();
+
+        assertNotEquals(cards, originalOrder);
     }
 }
