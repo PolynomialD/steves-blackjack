@@ -5,6 +5,14 @@ import java.util.List;
 
 public class CardGenerator {
 
+    public List<Card> generate(int numberOfDecks) {
+        List<Card> cards = new ArrayList<>();
+        for(int i = 0; i < numberOfDecks; i++) {
+            cards.addAll(this.generate());
+        }
+        return cards;
+    }
+
     public List<Card> generate() {
         List<Card> cards = new ArrayList<>();
         List<String> suits = List.of("Clubs", "Hearts", "Diamonds", "Spades");
